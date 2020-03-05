@@ -5,7 +5,7 @@
     ```bash
     $ cd /Library/PostgreSQL/12/bin
     $ psql -U postgres
-      Password for user postgres: <insert password here>
+      Password for user postgres: 123456
     ```
 
 #
@@ -20,22 +20,26 @@
 
 #
 
-3. Create a __"users"__ table on __"my_flask"__ database:
+3. Create a __"address"__ table on __"my_flask"__ database:
     
     ```bash
-    lin_flask=#  CREATE TABLE users(
-                 id SERIAL PRIMARY KEY,
-                 name VARCHAR(255),
-                 age VARCAR(255)
-                 );
-    lin_flask=#  \d
+    my_flask=#  CREATE TABLE address(
+                 adid SERIAL PRIMARY KEY,
+                 country_lv VARCHAR(255),
+                 state_lv VARCAR(255),
+                 city_lv VARCAR(255),
+                 subdiv_lv VARCAR(255),
+                 postcode VARCAR(255),
+                 street_lv VARCAR(255)
+                 ); 
+    my_flask=#  \d
     ``` 
 
 #
 
 4. Clone this repo. Insert your database URI to __database.yaml__ file, then install all the packages needed. In this project I'm using __flask__, __flask_cors__, __flask_mysqldb__, __Flask-SQLAlchemy__ & __psycopg2__:
     ```bash
-    $ git clone xxxxx
+    $ git clone https://github.com/IrenaNiu/CPSC5200AddressAPI.git
     $ cd CRUD_Flask_PostgreSQL
     $ pip install flask flask_cors Flask-SQLAlchemy psycopg2
     ```
@@ -56,9 +60,9 @@
     GET /
     ```
 
-    __Post a data to database:__ 
+    __Post a data to database (change header and body to JSON type):__ 
     ```bash
-    POST /data
+    POST /address
     body request: {"country_lv": "us",
             "state_lv": "",
             "city_lv": "",
@@ -68,12 +72,12 @@
     ```
     __Get all data & specific data by id:__
     ```bash
-    GET /data
-    GET /data/{:id} (i.e: /1)
+    GET /address
+    GET /address/{:id} (i.e: /1)
     ```
     __Update a data by id__:
     ```bash
-    PUT /data/{:id}
+    PUT /address/{:id}
     body request: {"country_lv": "us",
             "state_lv": "",
             "city_lv": "",
@@ -83,7 +87,7 @@
     ```
     __Delete a data by id:__
     ```bash
-    DELETE /data/{:id}
+    DELETE /address/{:id}
     ```
 
 #

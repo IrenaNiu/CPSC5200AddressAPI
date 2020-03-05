@@ -35,7 +35,7 @@ class Address(db.Model):
 def index():
     return render_template('home.html')
 
-@app.route('/data', methods=['POST', 'GET'])
+@app.route('/address', methods=['POST', 'GET'])
 def data():
     
     # POST an address to database
@@ -83,7 +83,7 @@ def data():
             dataJson.append(dataDict)
         return jsonify(dataJson)
 
-@app.route('/data/<string:id>', methods=['GET', 'DELETE', 'PUT'])
+@app.route('/address/<string:id>', methods=['GET', 'DELETE', 'PUT'])
 def onedata(id):
 
     # GET a specific address by id

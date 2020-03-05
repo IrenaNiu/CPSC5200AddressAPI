@@ -59,7 +59,12 @@
     __Post a data to database:__ 
     ```bash
     POST /data
-    body request: {"name":"a", "age":"18"}
+    body request: {"country_lv": "us",
+            "state_lv": "",
+            "city_lv": "",
+            "subdiv_lv": "",
+            "postcode_lv": "",
+            "street_lv": ""}
     ```
     __Get all data & specific data by id:__
     ```bash
@@ -69,7 +74,12 @@
     __Update a data by id__:
     ```bash
     PUT /data/{:id}
-    body request: {"name":"a", "age":"20"}
+    body request: {"country_lv": "us",
+            "state_lv": "",
+            "city_lv": "",
+            "subdiv_lv": "",
+            "postcode_lv": "",
+            "street_lv": ""}
     ```
     __Delete a data by id:__
     ```bash

@@ -20,17 +20,17 @@
 
 #
 
-3. Create a __"address"__ table on __"my_flask"__ database:
+3. Create an __"address"__ table on __"my_flask"__ database:
     
     ```bash
     my_flask=#  CREATE TABLE address(
                  adid SERIAL PRIMARY KEY,
                  country_lv VARCHAR(255),
-                 state_lv VARCAR(255),
-                 city_lv VARCAR(255),
-                 subdiv_lv VARCAR(255),
-                 postcode VARCAR(255),
-                 street_lv VARCAR(255)
+                 state_lv VARCHAR(255),
+                 city_lv VARCHAR(255),
+                 subdiv_lv VARCHAR(255),
+                 postcode VARCHAR(255),
+                 street_lv VARCHAR(255)
                  ); 
     my_flask=#  \d
     ``` 
@@ -60,7 +60,7 @@
     GET /
     ```
 
-    __Post a data to database (change header and body to JSON type):__ 
+    __Post an address to database (change header and body to JSON type):__ 
     ```bash
     POST /address
     body request: {"country_lv": "us",
@@ -70,12 +70,12 @@
             "postcode_lv": "",
             "street_lv": ""}
     ```
-    __Get all data & specific data by id:__
+    __Get all addresses & specific address by id:__
     ```bash
     GET /address
     GET /address/{:id} (i.e: /1)
     ```
-    __Update a data by id__:
+    __Update an address by id__:
     ```bash
     PUT /address/{:id}
     body request: {"country_lv": "us",
@@ -85,7 +85,7 @@
             "postcode_lv": "",
             "street_lv": ""}
     ```
-    __Delete a data by id:__
+    __Delete an address by id:__
     ```bash
     DELETE /address/{:id}
     ```

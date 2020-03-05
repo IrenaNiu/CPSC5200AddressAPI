@@ -103,7 +103,7 @@ def onedata(id):
         
     # DELETE an address
     if request.method == 'DELETE':
-        delData = Address.query.filter_by(id=id).first()
+        delData = Address.query.filter_by(adid=id).first()
         db.session.delete(delData)
         db.session.commit()
         return jsonify({'status': 'Address '+id+' is deleted from PostgreSQL!'})
@@ -117,7 +117,7 @@ def onedata(id):
         newSubdiv = body['subdiv_lv']
         newPostcode = body['postcode']
         newStreet = body['street_lv']
-        editData = Address.query.filter_by(id=id).first()
+        editData = Address.query.filter_by(adid=id).first()
         editData.country_lv = newCountry
         editData.state_lv = newState
         editData.city_lv = newCity
